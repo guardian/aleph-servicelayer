@@ -21,8 +21,8 @@ class S3Archive(VirtualArchive):
         # the appropriate access to the archive bucket.
         key_args = {}
         if settings.AWS_KEY_ID and settings.AWS_SECRET_KEY:
-            key_args["key_id"] = settings.AWS_KEY_ID
-            key_args["secret_key"] = settings.AWS_SECRET_KEY
+            key_args["aws_access_key_id"] = settings.AWS_KEY_ID
+            key_args["aws_secret_access_key"] = settings.AWS_SECRET_KEY
 
         self.client = boto3.client(
             "s3",
